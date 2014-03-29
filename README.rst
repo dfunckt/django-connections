@@ -34,14 +34,15 @@ Manually::
 Configuration
 =============
 
-Add ``connections`` to your settings::
+Add ``django.contrib.contenttypes`` and ``connections`` to your settings::
 
     INSTALLED_APPS = (
         # ...
+        'django.contrib.contenttypes',
         'connections',
     )
 
-Then, run ``migrate``::
+Order does not matter. Then, run ``migrate``::
 
     $ python manage.py migrate
 
