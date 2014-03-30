@@ -269,9 +269,9 @@ class Connection(models.Model):
 def _connection_created_handler(sender, instance, raw, created, **kwargs):
     if not raw and created:
         connection_created.send(sender=instance.relationship, connection=instance)
-post_save.connect(_connection_created_handler, sender=Connection, weak=False)
+post_save.connect(_connection_created_handler, sender=Connection)
 
 
 def _connection_removed_handler(sender, instance, **kwargs):
     connection_removed.send(sender=instance.relationship, connection=instance)
-post_delete.connect(_connection_removed_handler, sender=Connection, weak=False)
+post_delete.connect(_connection_removed_handler, sender=Connection)
